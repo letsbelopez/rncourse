@@ -60,7 +60,7 @@ class AuthScreen extends Component {
     let connectedValue = {};
     if (this.state.controls[key].validationRules.equalTo) {
       const equalControl = this.state.controls[key].validationRules.equalTo;
-      const equalValue = equalControl.value;
+      const equalValue = this.state.controls[equalControl].value;
       connectedValue = {
         ...connectedValue,
         equalTo: equalValue
@@ -83,7 +83,7 @@ class AuthScreen extends Component {
             isValid:
               key === "password"
                 ? validate(
-                    prevstate.controls.confirmPassword.value,
+                    prevState.controls.confirmPassword.value,
                     prevState.controls.confirmPassword.validationRules,
                     connectedValue
                   )
